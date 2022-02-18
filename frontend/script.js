@@ -14,14 +14,14 @@ let account1 = {
             {
                 "amount": 100,
                 "currency": "USA",
-                "isSuccessful": true,
+                "isSuccessful": false,
                 "type": "withdraw",
                 "date": 2020
             },
             {
                 "amount": 500,
                 "currency": "USA",
-                "isSuccessful": false,
+                "isSuccessful": true,
                 "type": "deposit",
                 "date": 2021
             }
@@ -44,14 +44,14 @@ let account2 = {
             {
                 "amount": 500,
                 "currency": "USA",
-                "isSuccessful": true,
+                "isSuccessful": false,
                 "type": "withdraw",
                 "date": 2020
             },
             {
                 "amount": 600,
                 "currency": "USA",
-                "isSuccessful": false,
+                "isSuccessful": true,
                 "type": "deposit",
                 "date": 2021
             }
@@ -89,27 +89,29 @@ let account3 = {
 };
 
 function getDateOfHighestDeposit(account) {
+
     let dateOfHighest = null;
     let amountOfHighest = 0;
 
-    for (let transactions of account.transactions) {
+    for (let transaction of account.transactions) {
 
-        let isRelevant = false
+        let isRelevant;
 
-        if (transactions.type === "deposit" && transactions.isSuccessful === true) {
-            isRelevant = true
-        }else {
-            isRelevant = false
+        if (transaction.type === "deposit" && transaction.isSuccessful === true) {
+            isRelevant = true;
+        }   else {
+            isRelevant = false;
         };
 
-        if (isRelevant === true && transactions.amount > amountOfHighest) {
-            dateOfHighest = transactions.date;
-            amountOfHighest = transactions.amount;
+        if (isRelevant === true && transaction.amount > amountOfHighest) {
+            dateOfHighest = transaction.date;
+            amountOfHighest = transaction.amount;
         }
 
-     return dateOfHighest;   
         
-    }
+    };
+
+    return dateOfHighest;   
 }
 
 console.log(getDateOfHighestDeposit(account1));

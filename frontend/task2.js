@@ -27,6 +27,7 @@ for (let door of doors) {
     if (door.isOpen === true) {
         console.log(door.doorNumber);
     }
+ 
 
 }
 

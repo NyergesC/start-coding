@@ -91,11 +91,11 @@ let account3 = {
 function getDateOfHighestDeposit(account) {
 
     let dateOfHighest = null;
-    let amountOfHighest = 0;
+    let amountOfHighest = 0; // ide toltjuk bele az erteket
 
     for (let transaction of account.transactions) {
 
-        let isRelevant;
+        let isRelevant = false; //default ertek
 
         if (transaction.type === "deposit" && transaction.isSuccessful === true) {
             isRelevant = true;
@@ -105,7 +105,7 @@ function getDateOfHighestDeposit(account) {
 
         if (isRelevant === true && transaction.amount > amountOfHighest) {
             dateOfHighest = transaction.date;
-            amountOfHighest = transaction.amount;
+            amountOfHighest = transaction.amount; //ilyenkor felulirjuk
         }
 
         

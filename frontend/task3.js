@@ -5,12 +5,18 @@ let sentence4 = "At the end, you stay there alone";
 let sentence5 = "and you just cry in the middle of night.";
 
 function cleanse(sentence, words) {
-    let splitSentence = sentence.split(" ");
+    let splitSentence = sentence.split(" "); // ez tombot hoz letre , ami a """" kozott van annal valasztja el azt jelenti, akar a betu is lehetne itt
     let filterWords = ["beautiful", "farther", "cry"];
     let result = "";
 
     for (const izek of splitSentence) {
         let isCleanWord = true;
+
+        /*forof (const word of words) {
+            if (word === wordFromSentence) {
+                isCleanWord = false
+            }
+        }*/
 
         for (const lollypop of filterWords) {
 
@@ -20,9 +26,13 @@ function cleanse(sentence, words) {
         };
     
         if (isCleanWord === true) {
-            result = result + " " + izek;
+            result = result + " " + izek; //result += '${izek}'
         } else {
-            result = result + " **** ";
+            //let uglyWord = ""
+            /*for (let i = 0, i < izek.length, i++) {
+                uglyWord += "*"
+            }*/
+            result = result + " **** "; //vagy result += '${uglyWord}
         }
             
     }
